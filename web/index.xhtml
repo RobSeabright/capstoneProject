@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- index.xhtml -->
+<!-- home page -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Home</title>
+        <h:outputStylesheet name="demo.css" library="css"/>
+        <h:outputStylesheet name="form.css" library="css"/>
+    </h:head>
+    <h:body>
+        <header>
+            <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+        </header>
+        <ul>
+            <li><a href="index.xhtml">Home</a></li>
+            <li><a href="aboutUs.xhtml">About Us</a></li>
+            <li><a href="contactUs.xhtml">Contact Us</a></li>
+            <li><a href="signUp.xhtml">Sign-Up</a></li>
+            <li><a href="login.xhtml">Login</a></li>
+        </ul>
+        <div class="main-content">
+            <h:form class="form-labels-on-top">
+        <br/><br/>
+        <div class="form-row">
+        <h:graphicImage url="building.jpg" styleClass="logo" style="padding-left: 10%"/>
+        <p style="padding-left: 40%;">
+            Taylor Insurance Inc is a privately owned and operated insurance brokerage based out of <br/> Conche,
+            Newfoundland and Labrador! <br/><br/> Taylor Insurance is continually growing
+            each year with more and more offices all over Newfoundland and Labrador.
+        </p>
+        </div>
+        <br/><br/><br/><br/><br/>
+            </h:form>
+        </div>
+    </h:body>
+    <footer>
+        <h:panelGrid columns="3" style="height: 10%; width:80%;">
+            <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+            <p>Taylor Insurance - Headquarters<br/>50 Emerald Drive<br/>Conche,NL A1K 0Y5<br/>Phone: (709)875-9585<br/>
+                Fax: (709)875-9555</p>
+            <h:form style="float: right;">                   
+                <h:commandLink styleClass="link" value="Home" action="index?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="About Us" action="aboutUs?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Contact Us" action="contactUs?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Sign Up" action="signUp?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Login" action="login?faces-redirect=true"/><br/>
+            </h:form>
+        </h:panelGrid>
+    </footer>
+</html>

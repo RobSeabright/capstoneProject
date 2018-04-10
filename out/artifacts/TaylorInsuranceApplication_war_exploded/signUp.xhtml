@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- signUp.xhtml -->
+<!-- new user page -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Sign Up</title>
+    <h:outputStylesheet name="demo.css" library="css"/>
+    <h:outputStylesheet name="form.css" library="css"/>
+</h:head>
+<h:body>
+    <header>
+        <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+    </header>
+    <ul>
+        <li><a href="index.xhtml">Home</a></li>
+        <li><a href="aboutUs.xhtml">About Us</a></li>
+        <li><a href="contactUs.xhtml">Contact Us</a></li>
+        <li><a href="login.xhtml">Login</a></li>
+    </ul>
+    <div class="main-content">
+        <h:form class="form-labels-on-top">
+            <div class="form-title-row">
+                <h1>Sign Up</h1>
+            </div>
+            <div class="form-row">
+                <h:outputLabel>E-mail:</h:outputLabel>
+                <h:inputText id="emailInputText" required="true"
+                             requiredMessage="Please enter e-mail"
+                             value="#{AccountBean.email}"
+                             validatorMessage="Invalid e-mail address format">
+                    <f:validateRegex pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
+                </h:inputText>
+                <h:message for="emailInputText" style="color:red;"/>
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Password:</h:outputLabel>
+                <h:inputSecret id="passwordInputText" required="true"
+                               requiredMessage="Please enter password"
+                               value="#{AccountBean.password}"
+                               validatorMessage="Password must be at least 8 characters long">
+                    <f:validateLength minimum="8"/>
+                </h:inputSecret>
+                <h:message for="passwordInputText" style="color:red;"/>
+            </div>
+            <div class="form-row">
+                <h:commandButton styleClass="button" value="Sign Up" action="#{AccountBean.createAccount}"/>
+                <h:commandButton styleClass="button" value="Cancel" action="index?faces-redirect=true" immediate="true"/>
+            </div>
+        </h:form>
+    </div>
+</h:body>
+</html>
+
+

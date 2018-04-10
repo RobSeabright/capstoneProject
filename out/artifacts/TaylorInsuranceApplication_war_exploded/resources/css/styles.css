@@ -1,0 +1,53 @@
+.logo{
+    float: left;
+}
+
+body{
+    background: #d3d3d3;
+}
+
+header{
+    color: #1761a0;
+    text-align: center; 
+    border-bottom: solid #7e7e7e;
+    font-size: 3.8em; 
+    text-decoration: none;
+    background: white;
+}
+
+h2{
+    font-weight: bold;
+    color: #1761a0;
+}
+
+.button{
+    margin-left: auto;
+    line-height: 2em;
+    background: #d3d3d3;
+    font-weight: bold;
+    color: #1761a0;
+    float: left;
+}
+
+.button:hover{
+    outline-style: solid;
+    outline-color: black;
+    outline-width: thin;
+}
+
+footer{
+    margin-top: 8%;
+    height: 15%; 
+    border-top: solid #7e7e7e; 
+    background: white;
+    float: bottom;
+}
+
+.link{
+    color: #1761a0
+}
+
+.link:hover{
+    color: black
+}
+

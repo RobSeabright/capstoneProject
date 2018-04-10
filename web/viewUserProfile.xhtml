@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- viewUserProfile.xhtml -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>User Information</title>
+    <h:outputStylesheet name="demo.css" library="css"/>
+    <h:outputStylesheet name="form.css" library="css"/>
+</h:head>
+<h:body>
+    <header>
+        <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+    </header>
+    <ul>
+        <li><a href="viewUserProfile.xhtml">User Profile</a></li>
+        <li><a href="homeOwner.xhtml">Create Home Quote</a></li>
+        <li><a href="primaryDriver.xhtml">Create Vehicle Quote</a></li>
+        <li><a href="index.xhtml">Logout</a></li>
+    </ul>
+    <div class="main-content">
+        <h:form class="form-labels-on-top">
+            <div class="form-title-row">
+                <h1>User Information</h1>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{UserBean.userId != 0}">Client ID: #{UserBean.userId}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{UserBean.firstName != null}">First Name: #{UserBean.firstName}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.lastName != null}">Last Name: #{UserBean.lastName}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.gender != null}">Gender: #{UserBean.gender}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.dob != null}">Date of Birth: #{UserBean.dob}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.phone != null}">Phone: #{UserBean.phone}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.address != null}">Address: #{UserBean.address}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.city != null}">City: #{UserBean.city}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.province != null}">Province: #{UserBean.province}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.postalCode != null}">Postal Code: #{UserBean.postalCode}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.licenseNumber != null}">Drivers License Number: #{UserBean.licenseNumber}</h:outputLabel>
+                <h:outputLabel rendered="#{UserBean.licenseDate != null}">License Issue Date: #{UserBean.licenseDate}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:commandButton styleClass="button" value="Edit Profile" rendered="#{UserBean.userId != 0}" action="editUserProfile?faces-redirect=true"/>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{HomeQuoteBean.quoteID != null}">Home Quote</h:outputLabel>
+            </div>
+            <div class="form-row">
+            <h:commandButton styleClass="button" value="Create Home Quote" rendered="#{HomeQuoteBean.quoteID == null}" action="homeOwner?faces-redirect=true"/>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{HomeQuoteBean.quoteID != null}">Quote ID: #{HomeQuoteBean.quoteID}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{HomeQuoteBean.startDate != null}">Date Quoted: #{HomeQuoteBean.displayStartDate}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.endDate != null}">Expiry Date: #{HomeQuoteBean.displayEndDate}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.basePremium != 0}">Base Premium: $#{HomeQuoteBean.basePremium}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.tax != 0}">Tax: $#{HomeQuoteBean.tax}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.total != 0}">Total: $#{HomeQuoteBean.total}</h:outputLabel>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{HomeQuoteBean.homeYear != 0}">Home Information:</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{HomeQuoteBean.homeYear != 0}">Year Built: #{HomeQuoteBean.homeYear}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.homeTypeDisplay != null}">Type of Dwelling: #{HomeQuoteBean.homeTypeDisplay}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.heatingTypeDisplay != null}">Heating Type: #{HomeQuoteBean.heatingTypeDisplay}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.address != null}">Address: #{HomeQuoteBean.address}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.city != null}">City: #{HomeQuoteBean.city}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.province != null}">Province: #{HomeQuoteBean.province}</h:outputLabel>
+                <h:outputLabel rendered="#{HomeQuoteBean.postalCode != null}">Postal Code: #{HomeQuoteBean.postalCode}</h:outputLabel>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{HomePolicyBean.policyID != null}">Home Policy</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{HomePolicyBean.policyID != null}">Policy ID: #{HomePolicyBean.policyID}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{HomePolicyBean.startDate != null}">Date Policyd: #{HomePolicyBean.displayStartDate}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.endDate != null}">Expiry Date: #{HomePolicyBean.displayEndDate}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.basePremium != 0}">Base Premium: $#{HomePolicyBean.basePremium}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.tax != 0}">Tax: $#{HomePolicyBean.tax}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.total != 0}">Total: $#{HomePolicyBean.total}</h:outputLabel>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{HomePolicyBean.homeYear != 0}">Home Information:</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{HomePolicyBean.homeYear != 0}">Year Built: #{HomePolicyBean.homeYear}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.homeTypeDisplay != null}">Type of Dwelling: #{HomePolicyBean.homeTypeDisplay}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.heatingTypeDisplay != null}">Heating Type: #{HomePolicyBean.heatingTypeDisplay}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.address != null}">Address: #{HomePolicyBean.address}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.city != null}">City: #{HomePolicyBean.city}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.province != null}">Province: #{HomePolicyBean.province}</h:outputLabel>
+                <h:outputLabel rendered="#{HomePolicyBean.postalCode != null}">Postal Code: #{HomePolicyBean.postalCode}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:commandButton styleClass="button" value="Generate Home Policy" rendered="#{HomeQuoteBean.quoteID != null and HomePolicyBean.policyID == null}" action="#{HomePolicyBean.createPolicy}"/>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{VehicleQuoteBean.quoteID != null}">Vehicle Quote</h:outputLabel>
+            </div>
+            <div class="form-row">
+            <h:commandButton styleClass="button" value="Create Vehile Quote" rendered="#{VehicleQuoteBean.quoteID == null}" action="primaryDriver?faces-redirect=true"/>
+            </div>
+            <div class="form-row">
+            <h:outputLabel rendered="#{VehicleQuoteBean.quoteID != null}">Quote ID: #{VehicleQuoteBean.quoteID}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{VehicleQuoteBean.startDate != null}">Date Quoted: #{VehicleQuoteBean.displayStartDate}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.endDate != null}">Expiry Date: #{VehicleQuoteBean.displayEndDate}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.basePremium != 0}">Base Premium: $#{VehicleQuoteBean.basePremium}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.tax != 0}">Tax: $#{VehicleQuoteBean.tax}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.total != 0}">Total: $#{VehicleQuoteBean.total}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.accidentsTotal != 0}">Number of Accidents: #{VehicleQuoteBean.accidentsTotal}</h:outputLabel>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{VehicleQuoteBean.vehicleValue != 0}">Vehicle Information:</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{VehicleQuoteBean.vehicleValue != 0}">Vehicle Value: #{VehicleQuoteBean.vehicleValue}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.vehicleMake != null}">Vehicle Make: #{VehicleQuoteBean.vehicleMake}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.vehicleModel != null}">Vehicle Model: #{VehicleQuoteBean.vehicleModel}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.vehicleYear != 0}">Vehicle Year: #{VehicleQuoteBean.vehicleYear}</h:outputLabel>
+                <h:outputLabel rendered="#{VehicleQuoteBean.plateNumber != null}">Plate Number: #{VehicleQuoteBean.plateNumber}</h:outputLabel>
+                <h:outputLabel rendered="#{SecondaryDriverBean.firstName != null}">Secondary Driver: #{SecondaryDriverBean.firstName} #{SecondaryDriverBean.lastName}</h:outputLabel>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{VehiclePolicyBean.policyID != null}">Vehicle Policy</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{VehiclePolicyBean.policyID != null}">Policy ID: #{VehiclePolicyBean.policyID}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{VehiclePolicyBean.startDate != null}">Date Policyd: #{VehiclePolicyBean.displayStartDate}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.endDate != null}">Expiry Date: #{VehiclePolicyBean.displayEndDate}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.basePremium != 0}">Base Premium: $#{VehiclePolicyBean.basePremium}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.tax != 0}">Tax: $#{VehiclePolicyBean.tax}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.total != 0}">Total: $#{VehiclePolicyBean.total}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.accidentsTotal != 0}">Number of Accidents: #{VehiclePolicyBean.accidentsTotal}</h:outputLabel>
+            </div>
+            <div class="form-title-row">
+                <h:outputLabel rendered="#{VehiclePolicyBean.vehicleValue != 0}">Vehicle Information:</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:outputLabel rendered="#{VehiclePolicyBean.vehicleValue != 0}">Vehicle Value: #{VehiclePolicyBean.vehicleValue}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.vehicleMake != null}">Vehicle Make: #{VehiclePolicyBean.vehicleMake}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.vehicleModel != null}">Vehicle Model: #{VehiclePolicyBean.vehicleModel}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.vehicleYear != 0}">Vehicle Year: #{VehiclePolicyBean.vehicleYear}</h:outputLabel>
+                <h:outputLabel rendered="#{VehiclePolicyBean.plateNumber != null}">Plate Number: #{VehiclePolicyBean.plateNumber}</h:outputLabel>
+                <h:outputLabel rendered="#{SecondaryDriverBean.firstName != null}">Secondary Driver: #{SecondaryDriverBean.firstName} #{SecondaryDriverBean.lastName}</h:outputLabel>
+            </div>
+            <div class="form-row">
+                <h:commandButton styleClass="button" value="Generate Vehicle Policy" rendered="#{VehicleQuoteBean.quoteID != null and VehiclePolicyBean.policyID == null}" action="#{VehiclePolicyBean.createPolicy}"/>
+            </div>
+            <div class="form-row">
+                <h:commandButton styleClass="button" value="Cancel" action="viewUserProfile?faces-redirect=true" immediate="true"/>
+            </div>
+        </h:form>
+    </div>
+</h:body>
+<footer>
+    <h:panelGrid columns="3" style="height: 10%; width:80%;">
+        <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+        <p>Taylor Insurance - Headquarters<br/>50 Emerald Drive<br/>Conche,NL A1K 0Y5<br/>Phone: (709)875-9585<br/>
+            Fax: (709)875-9555</p>
+        <h:form style="float: right;">
+            <h:commandLink styleClass="link" value="User Profile" action="viewUserProfile?faces-redirect=true"/><br/>
+            <h:commandLink styleClass="link" value="Create Home Quote" action="homeOwner?faces-redirect=true"/><br/>
+            <h:commandLink styleClass="link" value="Create Vehicle Quote" action="primaryDriver?faces-redirect=true"/><br/>
+            <h:commandLink styleClass="link" value="Logout" action="index?faces-redirect=true"/><br/>
+        </h:form>
+    </h:panelGrid>
+</footer>
+</html>

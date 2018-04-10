@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- vehicleQuoteResult.xhtml -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+   <h:head>
+      <title>Vehicle Quote</title>
+       <h:outputStylesheet name="demo.css" library="css"/>
+       <h:outputStylesheet name="form.css" library="css"/>
+   </h:head>
+   <h:body>
+       <header>
+           <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+       </header>
+       <ul>
+           <li><a href="viewUserProfile.xhtml">User Profile</a></li>
+           <li><a href="homeOwner.xhtml">Create Home Quote</a></li>
+           <li><a href="primaryDriver.xhtml">Create Vehicle Quote</a></li>
+           <li><a href="index.xhtml">Logout</a></li>
+       </ul>
+       <div class="main-content">
+       <h:form class="form-labels-on-top">
+           <div class="form-title-row">
+               <h1>User Information</h1>
+           </div>
+           <div class="form-row">
+         <h:outputLabel>Quote ID: #{VehicleQuoteBean.quoteID}</h:outputLabel>
+           </div>
+           <div class="form-row">
+            <h:outputLabel>Date Quoted: #{VehicleQuoteBean.displayStartDate}</h:outputLabel>
+            <h:outputLabel>Expiry Date: #{VehicleQuoteBean.displayEndDate}</h:outputLabel>
+            <h:outputLabel>Base Premium: $#{VehicleQuoteBean.basePremium}</h:outputLabel>
+            <h:outputLabel>Tax: $#{VehicleQuoteBean.tax}</h:outputLabel>
+            <h:outputLabel>Total: $#{VehicleQuoteBean.total}</h:outputLabel>
+            <h:outputLabel>Number of Accidents: #{VehicleQuoteBean.accidentsTotal}</h:outputLabel>
+           </div>
+           <div class="form-row">
+         <h:outputLabel>Vehicle Information:</h:outputLabel>
+           </div>
+           <div class="form-row">
+            <h:outputLabel>Vehicle Value: $#{VehicleQuoteBean.vehicleValue}</h:outputLabel>
+            <h:outputLabel>Vehicle Make: #{VehicleQuoteBean.vehicleMake}</h:outputLabel>
+            <h:outputLabel>Vehicle Model: #{VehicleQuoteBean.vehicleModel}</h:outputLabel>
+            <h:outputLabel>Vehicle Year: #{VehicleQuoteBean.vehicleYear}</h:outputLabel>
+            <h:outputLabel>Plate Number: #{VehicleQuoteBean.plateNumber}</h:outputLabel>
+            <h:outputLabel rendered="#{SecondaryDriverBean.firstName != null}">Secondary Driver: #{SecondaryDriverBean.firstName} #{SecondaryDriverBean.lastName}</h:outputLabel>
+           </div>
+           <div class="form-row">
+         <h:commandButton styleClass="button" value="Exit" action="viewUserProfile?faces-redirect=true" immediate="true"/>
+         <h:commandButton styleClass="button" value="Generate Policy" action="#{VehiclePolicyBean.createPolicy}"/>
+           </div>
+       </h:form>
+       </div>
+   </h:body>
+    <footer>
+        <h:panelGrid columns="3" style="height: 10%; width:80%;">
+            <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+            <p>Taylor Insurance - Headquarters<br/>50 Emerald Drive<br/>Conche,NL A1K 0Y5<br/>Phone: (709)875-9585<br/>
+                Fax: (709)875-9555</p>
+            <h:form style="float: right;">                   
+                <h:commandLink styleClass="link" value="User Profile" action="viewUserProfile?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Create Home Quote" action="homeOwner?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Create Vehicle Quote" action="primaryDriver?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Logout" action="index?faces-redirect=true"/><br/>
+            </h:form>
+        </h:panelGrid>
+    </footer>
+</html>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- signUp.xhtml -->
+<!-- new user page -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Driver Information</title>
+        <h:outputStylesheet name="demo.css" library="css"/>
+        <h:outputStylesheet name="form.css" library="css"/>
+    </h:head>
+    <h:body>
+        <header>
+            <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+        </header>
+        <ul>
+            <li><a href="index.xhtml">Home</a></li>
+            <li><a href="aboutUs.xhtml">About Us</a></li>
+            <li><a href="contactUs.xhtml">Contact Us</a></li>
+            <li><a href="login.xhtml">Login</a></li>
+        </ul>
+        <div class="main-content">
+        <h:form class="form-labels-on-top">
+            <div class="form-title-row">
+                <h2>Driver Information</h2>
+            </div>
+            <div class="form-row">
+                <h:outputLabel>First Name:</h:outputLabel>
+                <h:inputText id="firstNameInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.firstName}"
+                             validatorMessage="First name must be fewer than 40 characters">
+                    <f:validateLength maximum="40"/>
+                </h:inputText>
+                <h:message for="firstNameInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Last Name:</h:outputLabel>
+                <h:inputText id="lastNameInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.lastName}"
+                             validatorMessage="Last name must be fewer than 40 characters">
+                    <f:validateLength maximum="40"/>
+                </h:inputText>
+                <h:message for="lastNameInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Gender:</h:outputLabel>
+                <h:selectOneRadio id="genderSelectOneRadio" required="true"
+                                  requiredMessage="**"
+                                  value="#{UserBean.gender}">
+                    <f:selectItem itemValue="M" itemLabel="Male"/>
+                    <f:selectItem itemValue="F" itemLabel="Female"/>
+                    <f:selectItem itemValue="O" itemLabel="Other"/>
+                </h:selectOneRadio>
+                <h:message for="genderSelectOneRadio" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Date of Birth:</h:outputLabel>
+                <h:inputText id="dobInputText" required="true"
+                             requiredMessage="**(yyyy-mm-dd)"
+                             value="#{UserBean.dob}"
+                             validatorMessage="Invalid date of birth format">
+                    <f:validateRegex pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$"/>
+                </h:inputText>
+                <h:message for="dobInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Phone:</h:outputLabel>
+                <h:inputText id="phoneInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.phone}"
+                             validatorMessage="Invalid phone number format">
+                    <f:validateRegex pattern="((\(\d{3}\)?)|(\d{3}-))?\d{3}-\d{4}"/>
+                </h:inputText>
+                <h:message for="phoneInputText" style="color:red;" />
+                <h:outputLabel>E-mail:</h:outputLabel>
+                <h:inputText id="emailInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.email}"
+                             validatorMessage="Invalid e-mail address format">
+                    <f:validateRegex pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
+                </h:inputText>
+                <h:message for="emailInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Address:</h:outputLabel>
+                <h:inputText id="addressInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.address}"
+                             validatorMessage="Address must be fewer than 30 characters">
+                    <f:validateLength maximum="30"/>
+                </h:inputText>
+                <h:message for="addressInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>City:</h:outputLabel>
+                <h:inputText id="cityInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.city}"
+                             validatorMessage="City must be fewer than 15 characters">
+                    <f:validateLength maximum="15"/>
+                </h:inputText>
+                <h:message for="cityInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Province:</h:outputLabel>
+                <h:inputText id="provinceInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.province}"
+                             validatorMessage="Province must be at least than 2 characters">
+                    <f:validateLength minimum="2"/>
+                </h:inputText>
+                <h:message for="provinceInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Postal Code:</h:outputLabel>
+                <h:inputText id="postalCodeInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.postalCode}"
+                             validatorMessage="Invalid postal code format">
+                    <f:validateRegex pattern="^[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$"/>
+                </h:inputText>
+                <h:message for="postalCodeInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Drivers License Number:</h:outputLabel>
+                <h:inputText id="licenseNumberInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.licenseNumber}"
+                             validatorMessage="Drivers license number must be at less than 10 characters">
+                    <f:validateLength maximum="10"/>
+                </h:inputText>
+                <h:message for="licenseNumberInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>License Issue Date:</h:outputLabel>
+                <h:inputText id="licenseDateInputText" required="true"
+                             requiredMessage="**"
+                             value="#{UserBean.licenseDate}"
+                             validatorMessage="Invalid date format">
+                    <f:validateRegex pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$"/>
+                </h:inputText>
+                <h:message for="licenseDateInputText" style="color:red;" />
+            </div>
+            <div class="form-row">
+                <h:outputLabel>Location:</h:outputLabel>
+                <h:selectOneRadio id="locationRadio" required="true"
+                                  requiredMessage="**"
+                                  value="#{UserBean.location}">
+                    <f:selectItem itemValue="1" itemLabel="St. John's"/>
+                    <f:selectItem itemValue="2" itemLabel="Avalon"/>
+                    <f:selectItem itemValue="3" itemLabel="Outside Avalon"/>
+                </h:selectOneRadio>
+                <h:message for="locationRadio" style="color:red;" />
+            </div>
+            <div class="form-row">
+            <h:commandButton styleClass="button" value="Submit" action="#{UserBean.createPrimaryDriver}" />
+            <h:commandButton styleClass="button" value="Cancel" action="viewUserProfile?faces-redirect=true" immediate="true"/>
+            </div>
+        </h:form>
+        </div>
+    </h:body>
+    <footer>
+        <h:panelGrid columns="3" style="height: 10%; width:80%;">
+            <h:graphicImage url="companyLogo.png" styleClass="logo"/>
+            <p>Taylor Insurance - Headquarters<br/>50 Emerald Drive<br/>Conche,NL A1K 0Y5<br/>Phone: (709)875-9585<br/>
+                Fax: (709)875-9555</p>
+            <h:form style="float: right;">                   
+                <h:commandLink styleClass="link" value="User Profile" action="viewUserProfile?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Create Home Quote" action="homeOwner?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Create Vehicle Quote" action="primaryDriver?faces-redirect=true"/><br/>
+                <h:commandLink styleClass="link" value="Logout" action="index?faces-redirect=true"/><br/>
+            </h:form>
+        </h:panelGrid>
+    </footer>
+</html>
+
+
